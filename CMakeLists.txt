@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 cmake_policy(SET CMP0048 NEW)
 
 project(Hello VERSION 0.0.1 DESCRIPTION "Wireshark Hello Plugin" LANGUAGES C)
+set(WIRESHARK_PLUGIN_NAME "hello")
 
 find_package(Wireshark CONFIG REQUIRED)
 
@@ -31,21 +32,21 @@ add_compile_definitions(
 	$<$<BOOL:${HAVE_SSIZE_T}>:HAVE_SSIZE_T>
 )
 
-add_library(hello MODULE hello.c)
-set_target_properties(hello PROPERTIES PREFIX "" DEFINE_SYMBOL "")
-target_link_libraries(hello epan)
+add_library(${WIRESHARK_PLUGIN_NAME} MODULE ${WIRESHARK_PLUGIN_NAME}.c)
+set_target_properties(${WIRESHARK_PLUGIN_NAME} PROPERTIES PREFIX "" DEFINE_SYMBOL "")
+target_link_libraries(${WIRESHARK_PLUGIN_NAME} epan)
 
 # This is the normal installation target to CMAKE_INSTALL_PREFIX. It is relocatable
 # using DESTDIR or cmake --install. By default CMAKE_INSTALL_PREFIX should be configured
 # correctly for Wireshark's system installation prefix.
-install(TARGETS hello
+install(TARGETS ${WIRESHARK_PLUGIN_NAME}
 	LIBRARY DESTINATION "${Wireshark_PLUGIN_LIBDIR}/epan" NAMELINK_SKIP
 )
 
 # This custom target installs the plugin to the plugin dir in WiresharkConfig.cmake.
 # It does not use CMAKE_INSTALL_PREFIX.
 add_custom_target(copy_plugin
-	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:hello> "${Wireshark_PLUGIN_INSTALL_DIR}/epan"
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${WIRESHARK_PLUGIN_NAME}> "${Wireshark_PLUGIN_INSTALL_DIR}/epan"
 	COMMENT "Installing plugin to: ${Wireshark_PLUGIN_INSTALL_DIR}/epan"
 )
 
@@ -53,7 +54,7 @@ string(TOLOWER "${PROJECT_NAME}-${PROJECT_VERSION}" _pkgname)
 
 add_custom_target(package_prep
 	COMMAND ${CMAKE_COMMAND} -E make_directory  ${CMAKE_BINARY_DIR}/${_pkgname}
-	COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/README $<TARGET_FILE:hello> ${CMAKE_BINARY_DIR}/${_pkgname}
+	COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/README $<TARGET_FILE:${WIRESHARK_PLUGIN_NAME}> ${CMAKE_BINARY_DIR}/${_pkgname}
 )
 
 add_custom_target(package

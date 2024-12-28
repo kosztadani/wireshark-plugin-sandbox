@@ -50,6 +50,18 @@ add_custom_target(copy_plugin
 	COMMENT "Installing plugin to: ${Wireshark_PLUGIN_INSTALL_DIR}/epan"
 )
 
+# This custom target installs the plugin to the correct version directory (e.g., "4.4")
+# within PLUGIN_CUSTOM_INSTALL_DIR. The idea is that after installing there, we can set
+# the environment variable WIRESHARK_PLUGIN_DIR to the same directory, and start Wireshark
+# to use the plugin.
+set(PLUGIN_VERSION_DIRNAME "${Wireshark_MAJOR_VERSION}.${Wireshark_MINOR_VERSION}")
+set(PLUGIN_CUSTOM_INSTALL_DIR "${WIRESHARK_CUSTOM_PLUGIN_DIR}/${PLUGIN_VERSION_DIRNAME}/epan")
+add_custom_target(copy_plugin_custom
+	COMMAND ${CMAKE_COMMAND} -E make_directory "${PLUGIN_CUSTOM_INSTALL_DIR}"
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${WIRESHARK_PLUGIN_NAME}> "${PLUGIN_CUSTOM_INSTALL_DIR}"
+	COMMENT "Installing plugin to: ${PLUGIN_CUSTOM_INSTALL_DIR}"
+)
+
 string(TOLOWER "${PROJECT_NAME}-${PROJECT_VERSION}" _pkgname)
 
 add_custom_target(package_prep

@@ -1,1 +1,5 @@
 /build
+/config/plugins
+/config/profiles
+/config/recent
+/config/recent_common

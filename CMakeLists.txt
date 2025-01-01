@@ -3,8 +3,8 @@
 cmake_minimum_required(VERSION 3.12)
 cmake_policy(SET CMP0048 NEW)
 
-project(Hello VERSION 0.0.1 DESCRIPTION "Wireshark Hello Plugin" LANGUAGES C)
-set(WIRESHARK_PLUGIN_NAME "hello")
+project(my-math-plugin VERSION 0.0.1 DESCRIPTION "Wireshark Plugin for My Simple Math Protocol" LANGUAGES C)
+set(WIRESHARK_PLUGIN_NAME "my-math")
 
 find_package(Wireshark CONFIG REQUIRED)
 

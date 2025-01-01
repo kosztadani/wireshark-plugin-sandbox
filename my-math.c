@@ -1,10 +1,28 @@
+#include <ws_version.h>
+#if WIRESHARK_VERSION_MAJOR <= 2 || (WIRESHARK_VERSION_MAJOR == 3 && WIRESHARK_VERSION_MINOR < 6)
+#warning "Not tested with Wireshark version <3.6"
+#elif (WIRESHARK_VERSION_MAJOR == 4 && WIRESHARK_VERSION_MINOR > 4) || WIRESHARK_VERSION_MAJOR > 4
+#warning "Not tested with Wireshark version >4.4"
+#endif
+
 #define WS_BUILD_DLL
-#include <wireshark.h>
-#include <wsutil/plugins.h>
 #include <epan/packet.h>
 #include <epan/proto.h>
 #include <epan/address.h>
 #include <epan/dissectors/packet-tcp.h>
+
+#if WIRESHARK_VERSION_MAJOR > 4
+#include <wireshark.h>
+#else
+#include <stdint.h>
+#include <ws_symbol_export.h>
+#endif
+
+#if (WIRESHARK_VERSION_MAJOR == 4 && WIRESHARK_VERSION_MINOR >= 4) || WIRESHARK_VERSION_MAJOR >= 5
+#include <wsutil/plugins.h>
+#else
+#define WS_PLUGIN_DESC_DISSECTOR    (1UL << 0)
+#endif
 
 #include "my-math.h"
 
@@ -28,7 +46,11 @@ static const value_string optypes[] = {
 };
 
 // subtrees
+#if (WIRESHARK_VERSION_MAJOR == 4 && WIRESHARK_VERSION_MINOR >= 4) || WIRESHARK_VERSION_MAJOR >= 5
 static int ett_my_math;
+#else
+static gint ett_my_math = -1;
+#endif
 
 // fields
 static int hf_optype;
@@ -66,7 +88,11 @@ static void proto_register_my_math(void) {
                         {"Result", "my-math.result", FT_INT32, BASE_DEC, NULL, 0x0, NULL, HFILL}
                 },
         };
+#if (WIRESHARK_VERSION_MAJOR == 4 && WIRESHARK_VERSION_MINOR >= 4) || WIRESHARK_VERSION_MAJOR >= 5
         static int *ett[] = {
+#else
+        static gint *ett[] = {
+#endif
                 &ett_my_math
         };
         proto_my_math = proto_register_protocol("My Simple Math Protocol", "My Math", "my-math");

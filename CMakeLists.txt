@@ -1,11 +1,4 @@
-# CMakeLists.txt
-#
-# Wireshark - Network traffic analyzer
-# By Gerald Combs <gerald@wireshark.org>
-# Copyright 1998 Gerald Combs
-#
 # SPDX-License-Identifier: GPL-2.0-or-later
-#
 
 cmake_minimum_required(VERSION 3.12)
 cmake_policy(SET CMP0048 NEW)

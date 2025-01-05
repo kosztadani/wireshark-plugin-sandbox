@@ -11,8 +11,8 @@ docker build \
     --tag "${tag}" \
     "${repository}"
 
-mkdir -p config/my-plugins
-rm -rf config/my-plugins/*
+rm -rf "${repository}/config/my-plugins"
+mkdir -p "${repository}/config/my-plugins"
 
 docker run \
     --rm \

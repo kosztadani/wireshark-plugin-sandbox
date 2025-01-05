@@ -11,11 +11,11 @@ docker build \
     --tag "${tag}" \
     "${repository}"
 
-mkdir -p config/plugins
-rm -rf config/plugins/*
+mkdir -p config/my-plugins
+rm -rf config/my-plugins/*
 
 docker run \
     --rm \
     "${tag}" \
     tar -C /wireshark-plugin . -cf - |
-tar -C "${repository}/config/plugins" -xf -
+tar -C "${repository}/config/my-plugins" -xf -

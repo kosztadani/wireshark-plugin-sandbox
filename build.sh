@@ -3,7 +3,7 @@
 set -euo pipefail
 
 repository="$(readlink -f "$(dirname "${0}")")"
-plugin_dir="${repository}/config/plugins"
+plugin_dir="${repository}/config/my-plugins"
 
 cd "${repository}" || {
     echo "Could not enter directory at \"${repository}\""

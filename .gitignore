@@ -1,5 +1,4 @@
 /build
-/config/plugins
-/config/profiles
-/config/recent
-/config/recent_common
+/config/*
+!/config/decode_as_entries
+!/config/dfilter_buttons

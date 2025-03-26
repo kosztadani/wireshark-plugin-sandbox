@@ -22,9 +22,10 @@ This builds the plugin for several Wireshark versions both for Linux and for Win
 ## Using the plugin
 
 The build scripts mentioned above install the plugin within the "config" directory.
-You can use the `wireshark.sh` script which is set up to use that as a configuration
-and plugin directory. You can also pass Wireshark arguments to that script.
+You can use the `wireshark-native.sh` script which is set up to use that as a
+configuration and plugin directory. You can also pass Wireshark arguments to
+that script.
 
 ```bash
-./wireshark.sh test/test.pcapng
+./wireshark-native.sh test/test.pcapng
 ```

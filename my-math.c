@@ -52,6 +52,21 @@ static int ett_my_math;
 static gint ett_my_math = -1;
 #endif
 
+static void proto_register_my_math(void);
+
+static void proto_register_handoff_my_math(void);
+
+static int dissect_my_math(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data);
+
+static unsigned get_my_math_message_len(packet_info *pinfo, tvbuff_t *tvb, int offset, void *data);
+
+static int dissect_my_math_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data);
+
+static bool is_request(packet_info *pinfo);
+
+static char operation_sign(uint32_t opcode);
+
+
 // fields
 static int hf_optype;
 static int hf_first_operand;

@@ -157,8 +157,9 @@ static bool is_request(packet_info *pinfo) {
         conversation_t *conversation = find_or_create_conversation(pinfo);
         struct my_math_conversation_data *data = conversation_get_proto_data(conversation, proto_my_math);
         if (data == NULL) {
-                data = wmem_alloc(wmem_file_scope(), sizeof(struct my_math_conversation_data));
-                data->server_address = pinfo->dst;
+                wmem_allocator_t *scope = wmem_file_scope();
+                data = wmem_alloc(scope, sizeof(struct my_math_conversation_data));
+                copy_address_wmem(scope, &data->server_address, &pinfo->dst);
                 data->server_port = pinfo->destport;
                 conversation_add_proto_data(conversation, proto_my_math, data);
                 return true;

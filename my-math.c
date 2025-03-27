@@ -62,6 +62,10 @@ static unsigned get_my_math_message_len(packet_info *pinfo, tvbuff_t *tvb, int o
 
 static int dissect_my_math_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data);
 
+static int dissect_request(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
+
+static int dissect_response(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree);
+
 static bool is_request(packet_info *pinfo);
 
 static char operation_sign(uint32_t opcode);
@@ -134,30 +138,37 @@ static int dissect_my_math_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree
         int size;
         col_clear(pinfo->cinfo, COL_INFO);
         if (is_request(pinfo)) {
-                proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_REQUEST_SIZE, ENC_NA);
-                proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);
-                uint32_t opcode;
-                proto_tree_add_item_ret_uint(my_math_tree, hf_optype, tvb, 0, 1, ENC_BIG_ENDIAN, &opcode);
-                int32_t first;
-                proto_tree_add_item_ret_int(my_math_tree, hf_first_operand, tvb, 1, 4, ENC_BIG_ENDIAN, &first);
-                int32_t second;
-                proto_tree_add_item_ret_int(my_math_tree, hf_second_operand, tvb, 5, 4, ENC_BIG_ENDIAN, &second);
-                const char sign = operation_sign(opcode);
-                proto_item_append_text(ti, ", Request (%i %c %i)", first, sign, second);
-                col_append_sep_fstr(pinfo->cinfo, COL_INFO, ", ", "Request (%i %c %i)", first, sign, second);
-                size = MY_MATH_REQUEST_SIZE;
+                size = dissect_request(tvb, pinfo, tree);
         } else {
-                proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_RESPONSE_SIZE, ENC_NA);
-                proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);
-                int32_t result;
-                proto_tree_add_item_ret_int(my_math_tree, hf_result, tvb, 0, 4, ENC_BIG_ENDIAN, &result);
-                proto_item_append_text(ti, ", Response (%i)", result);
-                col_append_sep_fstr(pinfo->cinfo, COL_INFO, ", ", "Response (%i)", result);
-                size = MY_MATH_RESPONSE_SIZE;
+                size = dissect_response(tvb, pinfo, tree);
         }
         col_set_fence(pinfo->cinfo, COL_INFO);;
         return size;
 }
+
+static int dissect_request(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree) {
+        proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_REQUEST_SIZE, ENC_NA);
+        proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);
+        uint32_t opcode;
+        proto_tree_add_item_ret_uint(my_math_tree, hf_optype, tvb, 0, 1, ENC_BIG_ENDIAN, &opcode);
+        int32_t first;
+        proto_tree_add_item_ret_int(my_math_tree, hf_first_operand, tvb, 1, 4, ENC_BIG_ENDIAN, &first);
+        int32_t second;
+        proto_tree_add_item_ret_int(my_math_tree, hf_second_operand, tvb, 5, 4, ENC_BIG_ENDIAN, &second);
+        const char sign = operation_sign(opcode);
+        proto_item_append_text(ti, ", Request (%i %c %i)", first, sign, second);
+        col_append_sep_fstr(pinfo->cinfo, COL_INFO, ", ", "Request (%i %c %i)", first, sign, second);
+        return MY_MATH_REQUEST_SIZE;
+}
+
+static int dissect_response(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree) {
+        proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_RESPONSE_SIZE, ENC_NA);
+        proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);
+        int32_t result;
+        proto_tree_add_item_ret_int(my_math_tree, hf_result, tvb, 0, 4, ENC_BIG_ENDIAN, &result);
+        proto_item_append_text(ti, ", Response (%i)", result);
+        col_append_sep_fstr(pinfo->cinfo, COL_INFO, ", ", "Response (%i)", result);
+        return MY_MATH_RESPONSE_SIZE;
 }
 
 static bool is_request(packet_info *pinfo) {

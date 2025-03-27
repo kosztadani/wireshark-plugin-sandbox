@@ -2,3 +2,4 @@
 /config/*
 !/config/decode_as_entries
 !/config/dfilter_buttons
+/test-dumps

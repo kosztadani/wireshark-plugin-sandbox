@@ -27,5 +27,5 @@ configuration and plugin directory. You can also pass Wireshark arguments to
 that script.
 
 ```bash
-./wireshark-native.sh test/test.pcapng
+./wireshark-native.sh examples/single-requests-005.pcapng
 ```

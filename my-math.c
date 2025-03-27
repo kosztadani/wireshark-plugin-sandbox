@@ -110,7 +110,7 @@ static void proto_register_my_math(void) {
 #endif
                 &ett_my_math
         };
-        proto_my_math = proto_register_protocol("My Simple Math Protocol", "My Math", "my-math");
+        proto_my_math = proto_register_protocol("My Simple Math Protocol", "MY-MATH", "my-math");
         proto_register_field_array(proto_my_math, hf, array_length(hf));
         proto_register_subtree_array(ett, array_length(ett));
 }

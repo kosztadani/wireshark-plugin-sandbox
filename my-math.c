@@ -122,7 +122,7 @@ static void proto_register_handoff_my_math(void) {
 
 static int dissect_my_math(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data) {
         tcp_dissect_pdus(tvb, pinfo, tree, true, 0, get_my_math_message_len, dissect_my_math_message, data);
-        return tvb_captured_length(tvb);
+        return tvb_reported_length(tvb);
 }
 
 static unsigned get_my_math_message_len(packet_info *pinfo, tvbuff_t *tvb _U_, int offset _U_, void *data _U_) {

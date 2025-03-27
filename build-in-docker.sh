@@ -18,4 +18,4 @@ docker run \
     --rm \
     "${tag}" \
     tar -C /wireshark-plugin . -cf - |
-tar -C "${repository}/config/my-plugins" -xf -
+    tar -C "${repository}/config/my-plugins" -xf -

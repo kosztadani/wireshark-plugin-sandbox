@@ -121,6 +121,7 @@ static void proto_register_handoff_my_math(void) {
 }
 
 static int dissect_my_math(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data) {
+        col_set_str(pinfo->cinfo, COL_PROTOCOL, "MY-MATH");
         tcp_dissect_pdus(tvb, pinfo, tree, true, 0, get_my_math_message_len, dissect_my_math_message, data);
         return tvb_reported_length(tvb);
 }
@@ -130,7 +131,6 @@ static unsigned get_my_math_message_len(packet_info *pinfo, tvbuff_t *tvb _U_, i
 }
 
 static int dissect_my_math_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _U_) {
-        col_set_str(pinfo->cinfo, COL_PROTOCOL, "MY-MATH");
         if (is_request(pinfo)) {
                 proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_REQUEST_SIZE, ENC_NA);
                 proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);

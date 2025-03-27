@@ -131,6 +131,8 @@ static unsigned get_my_math_message_len(packet_info *pinfo, tvbuff_t *tvb _U_, i
 }
 
 static int dissect_my_math_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _U_) {
+        int size;
+        col_clear(pinfo->cinfo, COL_INFO);
         if (is_request(pinfo)) {
                 proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_REQUEST_SIZE, ENC_NA);
                 proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);
@@ -140,17 +142,22 @@ static int dissect_my_math_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree
                 proto_tree_add_item_ret_int(my_math_tree, hf_first_operand, tvb, 1, 4, ENC_BIG_ENDIAN, &first);
                 int32_t second;
                 proto_tree_add_item_ret_int(my_math_tree, hf_second_operand, tvb, 5, 4, ENC_BIG_ENDIAN, &second);
-                col_add_fstr(pinfo->cinfo, COL_INFO, "My Simple Math Protocol: Request (%i %c %i)",
-                             first, operation_sign(opcode), second);
-                return MY_MATH_REQUEST_SIZE;
+                const char sign = operation_sign(opcode);
+                proto_item_append_text(ti, ", Request (%i %c %i)", first, sign, second);
+                col_append_sep_fstr(pinfo->cinfo, COL_INFO, ", ", "Request (%i %c %i)", first, sign, second);
+                size = MY_MATH_REQUEST_SIZE;
         } else {
                 proto_item *ti = proto_tree_add_item(tree, proto_my_math, tvb, 0, MY_MATH_RESPONSE_SIZE, ENC_NA);
                 proto_tree *my_math_tree = proto_item_add_subtree(ti, ett_my_math);
                 int32_t result;
                 proto_tree_add_item_ret_int(my_math_tree, hf_result, tvb, 0, 4, ENC_BIG_ENDIAN, &result);
-                col_add_fstr(pinfo->cinfo, COL_INFO, "My Simple Math Protocol: Response (%i)", result);
-                return MY_MATH_RESPONSE_SIZE;
+                proto_item_append_text(ti, ", Response (%i)", result);
+                col_append_sep_fstr(pinfo->cinfo, COL_INFO, ", ", "Response (%i)", result);
+                size = MY_MATH_RESPONSE_SIZE;
         }
+        col_set_fence(pinfo->cinfo, COL_INFO);;
+        return size;
+}
 }
 
 static bool is_request(packet_info *pinfo) {

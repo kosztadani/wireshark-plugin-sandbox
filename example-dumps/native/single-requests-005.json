@@ -1,0 +1,242 @@
+[
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.optype": "1",
+          "my-math.first-operand": "0",
+          "my-math.second-operand": "0"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.result": "0"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.optype": "1",
+          "my-math.first-operand": "5",
+          "my-math.second-operand": "3"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.result": "8"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.optype": "2",
+          "my-math.first-operand": "5",
+          "my-math.second-operand": "3"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.result": "2"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.optype": "3",
+          "my-math.first-operand": "5",
+          "my-math.second-operand": "3"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.result": "15"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.optype": "4",
+          "my-math.first-operand": "5",
+          "my-math.second-operand": "3"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2024-12-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "my-math": {
+          "my-math.result": "1"
+        }
+      }
+    }
+  }
+]

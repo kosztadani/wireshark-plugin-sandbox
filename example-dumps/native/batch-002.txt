@@ -1,0 +1,22 @@
+Frame 7: 84 bytes on wire (672 bits), 84 bytes captured (672 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 39414, Dst Port: 9999, Seq: 1, Ack: 1, Len: 18
+My Simple Math Protocol, Request (5 + 3)
+    Operation type: Add (1)
+    First operand: 5
+    Second operand: 3
+My Simple Math Protocol, Request (5 - 3)
+    Operation type: Subtract (2)
+    First operand: 5
+    Second operand: 3
+
+Frame 9: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 39414, Seq: 1, Ack: 19, Len: 8
+My Simple Math Protocol, Response (8)
+    Result: 8
+My Simple Math Protocol, Response (2)
+    Result: 2
+

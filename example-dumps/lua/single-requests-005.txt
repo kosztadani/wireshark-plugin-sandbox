@@ -1,0 +1,80 @@
+Frame 4: 75 bytes on wire (600 bits), 75 bytes captured (600 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 47298, Dst Port: 9999, Seq: 1, Ack: 1, Len: 9
+My Simple Math Protocol, Request (0 + 0)
+    Operation type: Add (1)
+    First operand: 0
+    Second operand: 0
+
+Frame 6: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 47298, Seq: 1, Ack: 10, Len: 4
+My Simple Math Protocol, Response (0)
+    Result: 0
+
+Frame 8: 75 bytes on wire (600 bits), 75 bytes captured (600 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 47298, Dst Port: 9999, Seq: 10, Ack: 5, Len: 9
+My Simple Math Protocol, Request (5 + 3)
+    Operation type: Add (1)
+    First operand: 5
+    Second operand: 3
+
+Frame 9: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 47298, Seq: 5, Ack: 19, Len: 4
+My Simple Math Protocol, Response (8)
+    Result: 8
+
+Frame 11: 75 bytes on wire (600 bits), 75 bytes captured (600 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 47298, Dst Port: 9999, Seq: 19, Ack: 9, Len: 9
+My Simple Math Protocol, Request (5 - 3)
+    Operation type: Subtract (2)
+    First operand: 5
+    Second operand: 3
+
+Frame 12: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 47298, Seq: 9, Ack: 28, Len: 4
+My Simple Math Protocol, Response (2)
+    Result: 2
+
+Frame 14: 75 bytes on wire (600 bits), 75 bytes captured (600 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 47298, Dst Port: 9999, Seq: 28, Ack: 13, Len: 9
+My Simple Math Protocol, Request (5 * 3)
+    Operation type: Multiply (3)
+    First operand: 5
+    Second operand: 3
+
+Frame 15: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 47298, Seq: 13, Ack: 37, Len: 4
+My Simple Math Protocol, Response (15)
+    Result: 15
+
+Frame 17: 75 bytes on wire (600 bits), 75 bytes captured (600 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 47298, Dst Port: 9999, Seq: 37, Ack: 17, Len: 9
+My Simple Math Protocol, Request (5 / 3)
+    Operation type: Divide (4)
+    First operand: 5
+    Second operand: 3
+
+Frame 18: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 47298, Seq: 17, Ack: 46, Len: 4
+My Simple Math Protocol, Response (1)
+    Result: 1
+

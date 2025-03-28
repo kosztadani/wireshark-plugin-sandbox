@@ -1,0 +1,29 @@
+Frame 6: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 58296, Dst Port: 9999, Seq: 6, Ack: 1, Len: 5
+[2 Reassembled TCP Segments (9 bytes): #4(5), #6(4)]
+My Simple Math Protocol, Request (5 + 3)
+    Operation type: Add (1)
+    First operand: 5
+    Second operand: 3
+
+Frame 10: 69 bytes on wire (552 bits), 69 bytes captured (552 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 58296, Dst Port: 9999, Seq: 16, Ack: 1, Len: 3
+[3 Reassembled TCP Segments (9 bytes): #6(1), #8(5), #10(3)]
+My Simple Math Protocol, Request (5 - 3)
+    Operation type: Subtract (2)
+    First operand: 5
+    Second operand: 3
+
+Frame 12: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface lo, id 0
+Ethernet II, Src: 00:00:00_00:00:00 (00:00:00:00:00:00), Dst: 00:00:00_00:00:00 (00:00:00:00:00:00)
+Internet Protocol Version 4, Src: 127.0.0.1, Dst: 127.0.0.1
+Transmission Control Protocol, Src Port: 9999, Dst Port: 58296, Seq: 1, Ack: 19, Len: 8
+My Simple Math Protocol, Response (8)
+    Result: 8
+My Simple Math Protocol, Response (2)
+    Result: 2
+

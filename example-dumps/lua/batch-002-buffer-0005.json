@@ -1,0 +1,88 @@
+[
+  {
+    "_index": "packets-2025-03-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "tcp.segments": {
+          "filtered": "tcp.segments"
+        },
+        "_ws.lua.fake": "",
+        "my-math": {
+          "my-math.optype": "1",
+          "my-math.first-operand": "5",
+          "my-math.second-operand": "3"
+        },
+        "_ws.lua.fake": ""
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-03-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "tcp.segments": {
+          "filtered": "tcp.segments"
+        },
+        "_ws.lua.fake": "",
+        "my-math": {
+          "my-math.optype": "2",
+          "my-math.first-operand": "5",
+          "my-math.second-operand": "3"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-03-28",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "filtered": "frame"
+        },
+        "eth": {
+          "filtered": "eth"
+        },
+        "ip": {
+          "filtered": "ip"
+        },
+        "tcp": {
+          "filtered": "tcp"
+        },
+        "_ws.lua.fake": "",
+        "my-math": {
+          "my-math.result": "8"
+        },
+        "my-math": {
+          "my-math.result": "2"
+        }
+      }
+    }
+  }
+]

@@ -1,8 +1,8 @@
 #include <ws_version.h>
 #if WIRESHARK_VERSION_MAJOR <= 2 || (WIRESHARK_VERSION_MAJOR == 3 && WIRESHARK_VERSION_MINOR < 6)
 #warning "Not tested with Wireshark version <3.6"
-#elif (WIRESHARK_VERSION_MAJOR == 4 && WIRESHARK_VERSION_MINOR > 4) || WIRESHARK_VERSION_MAJOR > 4
-#warning "Not tested with Wireshark version >4.4"
+#elif (WIRESHARK_VERSION_MAJOR == 4 && WIRESHARK_VERSION_MINOR > 6) || WIRESHARK_VERSION_MAJOR > 4
+#warning "Not tested with Wireshark version >4.6"
 #endif
 
 #define WS_BUILD_DLL

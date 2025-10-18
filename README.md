@@ -38,8 +38,8 @@ that script.
 
 This is a cross-platform plugin written in Lua. There is no need for compilation.
 
-Note: the latest release of Wireshark (4.4.5) doesn't yet support
-conversations in its Lua API, so this needs a development build.
+Note: this needs Wireshark version 4.6.0 or later (where conversation support
+has been added to the Lua API).
 
 ### Using the plugin
 
